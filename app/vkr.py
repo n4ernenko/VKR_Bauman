@@ -7,6 +7,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from IPython.display import display
 
 sent = str(input('Введите объект закупки(предмет договора): '))
 df = pd.read_pickle('ML_data.pkl')

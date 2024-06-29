@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import pickle
+import dill as pickle
 import re
 import nltk
 from nltk.tokenize import word_tokenize
@@ -49,8 +49,8 @@ def extract_best_indices(m, topk, mask=None):
     return best_index
 
 vectorizer = pickle.load(open('tfidf_vec.pickle', 'rb'))
-#tfidf_mat = pickle.load(open('tfidf_mat.pickle', 'rb'))
-tfidf_mat = vectorizer.fit_transform(df['cleaned_subject'].values)
+tfidf_mat = pickle.load(open('tfidf_mat.pickle', 'rb'))
+# tfidf_mat = vectorizer.fit_transform(df['cleaned_subject'].values)
 def get_recommendations_tfidf(sent, tfidf_mat):
     clean_sent = clean_text(sent)
     tokens_query = tokenizer(clean_sent)
